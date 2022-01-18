@@ -1,0 +1,460 @@
+/*==================== GOOGLE FONTS ====================*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Merriweather', serif;
+
+    /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
+    --big-font-size: 3rem;
+    --h1-font-size: 2rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .9rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /*========== Margenes Bottom ==========*/
+    /* .25rem = 4px, .5rem = 8px, .75rem = 12px ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+}
+
+/* Font size for large devices */
+@media screen and (min-width: 968px) {
+    :root {
+        --biggest-font-size: 3rem;
+        --h2-font-size: 1.75rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*========== Variables Dark theme ==========*/
+
+
+/*========== Button Dark/Light ==========*/
+
+
+/*==================== BASE ====================*/
+*, ::before, ::after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+html {
+scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+}
+
+h1, h2, h3 {
+font-weight: var(--font-semi-bold);
+color: var(--title-color);
+line-height: 1.5;
+}
+
+ul {
+list-style: none;
+}
+
+a {
+text-decoration: none;
+}
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+/*==================== REUSABLE CSS CLASSES ====================*/
+.wrapper {
+    max-width: 800px;
+    margin: 30px auto;
+    box-shadow: 0 4px 5px -2px rgba(0,0,0,.2),0 7px 10px 1px rgba(0,0,0,.14),0 2px 16px 1px rgba(0,0,0,.12);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    overflow: hidden;
+}
+
+.section,
+.footer {
+    padding: 2.5rem 1rem;
+}
+
+.divider {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    background-color: #c3cacd;
+    position: absolute;
+    height: 1px;
+    width: 40%;
+    top: 50%;
+    border-radius: 5px;
+}
+
+.divider::before {
+    left: 25px;
+    transform: translateY(-50%);
+}
+
+.divider::after {
+    right: 25px;
+    transform: translateY(-50%);
+}
+
+.divider__icon {
+    height: 16px;
+    width: 16px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: .75rem;
+}
+
+.btn {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;  
+    border-radius: 28px;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 5px 8px 0 rgba(0,0,0,.14),0 1px 14px 0 rgba(0,0,0,.12);
+    background-color: #e53935;
+    color: #fff;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #ee504e;
+}
+
+.btn h3 {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 550px) {
+    .btn h3 {
+        font-size: .75rem;
+    }
+}
+
+#btn-rotatay {
+    animation-name: rotatay;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotatay {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    5% {
+      transform: scale(1.1);
+    }
+    10% {
+      transform: scale(1.1) rotate(3deg);
+    }
+    15% {
+      transform: scale(1.1) rotate(-3deg);
+    }
+    20% {
+      transform: scale(1.1) rotate(6deg);
+    }
+    25% {
+      transform: scale(1.1) rotate(-6deg);
+    }
+    30% {
+      transform: rotate(0deg);
+    }
+}
+
+.btn p {
+    font-size: .65rem;
+    font-style: italic;
+    font-weight: 300;
+    text-transform: none;
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    row-gap: .75rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+}
+
+/*==================== Scroll Bar ====================*/
+
+::-webkit-scrollbar {
+    width: 0.60rem;
+    background-color: #eeeeee;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ee504e;
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #b6302d;
+}
+
+/*==================== MAIN STYLING ====================*/
+
+/*==================== Header ====================*/
+.header {
+    background-image: url("../img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+}
+
+.header img {
+    height: 300px;
+    border-radius: 50%;
+    margin-bottom: var(--mb-0-75);
+}
+
+.header__title,
+.header__subtitle {
+    margin-bottom: var(--mb-0-75);
+}
+
+/*==================== Social ====================*/
+.social {
+    padding: 16px;
+}
+
+.social__grid {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3px;
+    row-gap: .65rem;
+}
+
+.social__item-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.social__item-small,
+.social__item-big {
+    display: flex;
+    justify-content: center;
+    padding: .2rem 0;
+    border-radius: 4px;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+.social__item-small {
+    flex: 0 1 33%;
+}
+
+.social__item-big {
+    flex: 0 1 100%;
+}
+
+.social__icon {
+    height: 25px;
+}
+
+/*==================== Social Icon Colors ====================*/
+
+#whatsapp {background-color: #24D366;}
+#whatsapp:hover {background-color: #3eec81;}
+#viber {background-color: #665CAC;}
+#viber:hover {background-color: #8177c4;}
+#telegram {background-color: #2EA5E1;}
+#telegram:hover {background-color: #55c1f7;}
+#vk {background-color: #5B88BD;}
+#vk:hover {background-color: #79a2d1;}
+
+/*==================== Benefits ====================*/
+
+
+.benefits__list {
+    padding-left: 2rem;
+}
+
+.benefits__list li {
+    margin-bottom: .75rem;
+}
+
+/*==================== Subscribe ====================*/
+.subscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.subscribe__btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subscribe__btn {
+    border-radius: 50%;
+    height: 56px;
+    width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    -webkit-box-shadow: 0px 0px 23px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 23px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 23px 0px rgba(34, 60, 80, 0.2);
+}
+
+.subscribe__btn img {
+    width: 25px;
+    height: 25px;
+}
+
+#circle-instagram {background-color: #e4405f;}
+#circle-instagram:hover {background-color: #ce2a48;}
+#circle-vk {background-color: #5b88bd;}
+#circle-vk:hover {background-color: #416fa5;}
+#circle-youtube {background-color: #ff0000;}
+#circle-youtube:hover {background-color: #da1616;}
+
+
+
+/*==================== Price ====================*/
+
+.price__table {
+    display: flex;
+    flex-direction: column;
+}
+
+.price__table-item {
+    display: flex;
+    justify-content: space-between;
+    padding: .75rem;
+    border-bottom: thin solid rgba(0,0,0,.12);
+}
+
+.price__table-item:hover {
+    background: rgba(0,0,0,.05);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 550px) {
+    .price__service {
+        font-size: .9rem;
+    }
+}
+
+/*==================== Footer ====================*/
+.footer {
+    font-size: .7rem;
+    text-align: center;
+}
+
+.footer a {
+    color: #e53935;
+}
+
+.footer a:hover {
+    color: #c22320;
+}
+
+/*==================== Media Queries ====================*/
+@media screen and (max-width: 830px) {
+    .wrapper {
+        margin: 0 auto;
+        transition: .35s;
+    }
+}
+
+/* Slick Style */
+.degree__slider {
+    display: flex;
+    overflow: hidden;
+    transition: .3s;
+    -webkit-box-shadow: 0px 0px 31px -2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 31px -2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 31px -2px rgba(34, 60, 80, 0.2);
+    position: relative;
+}
+
+
+.slick-next,
+.slick-prev {
+    background: #e53935;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.slick-prev {
+    position: absolute;
+    bottom: 50%;
+    transform:  translateY(50%);
+    left: 5px;
+}
+
+.slick-next {
+    position: absolute;
+    bottom: 50%;
+    transform:  translateY(50%);
+    right: 5px;
+}
+
+.slick-next:hover {
+    background: #c22320;
+}
